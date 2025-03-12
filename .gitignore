@@ -10,3 +10,11 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+CMakePresets.json
+
+out/
+build/
+.vscode/
+.idea/
+
+bin/
