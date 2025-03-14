@@ -12,7 +12,7 @@ _deps
 CMakeUserPresets.json
 CMakePresets.json
 
-out/
+/out/
 build/
 .vscode/
 .idea/
