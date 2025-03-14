@@ -1,3 +1,4 @@
+# CMake build artifacts
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -12,9 +13,35 @@ _deps
 CMakeUserPresets.json
 CMakePresets.json
 
+# Build directories
 /out/
-build/
+/build/
+
+# IDE specific files
 .vscode/
 .idea/
 
-bin/
+# Executable output
+/bin/
+
+# Object files and libraries
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.so
+*.dylib
+*.pdb
+*.suo
+
+# Temporary files
+*~
+.#*
+
+# Documentation build artifacts (if applicable)
+/docs/html/
+
+# Package files (if applicable)
+*.deb
+*.rpm
