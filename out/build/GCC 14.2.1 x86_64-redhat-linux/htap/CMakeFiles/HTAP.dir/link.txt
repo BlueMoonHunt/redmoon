@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHTAP.a CMakeFiles/HTAP.dir/htap.cpp.o
-/usr/bin/ranlib libHTAP.a
