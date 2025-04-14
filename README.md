@@ -53,17 +53,3 @@ The application requires resource files (like fonts, images, default settings) t
 * vendor/: (Created by CMake if dependencies are fetched) Contains downloaded source code for dependencies.  
 * CMakeLists.txt: The main CMake build script.  
 * build/: (Created by you) Contains the build files and output binaries.
-
-## **License**
-
-This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**.
-
-This license requires that:
-
-* **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
-* **NonCommercial** — You may not use the material for commercial purposes.  
-* **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-
-You can view the full license text [here](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-
-*Note: While this license meets the non-commercial and share-alike requirements, Creative Commons licenses are generally not the first choice for software projects compared to licenses like the GPL or AGPL (which permit commercial use but enforce source sharing). Please ensure this license aligns with your distribution goals.*
