@@ -1,0 +1,9 @@
+[submodule "vendor/SDL3_image"]
+	path = vendor/SDL3_image
+	url = https://github.com/libsdl-org/SDL_image.git
+[submodule "vendor/SDL3_ttf"]
+	path = vendor/SDL3_ttf
+	url = https://github.com/libsdl-org/SDL_ttf.git
+[submodule "vendor/SDL3_mixer"]
+	path = vendor/SDL3_mixer
+	url = https://github.com/libsdl-org/SDL_mixer.git

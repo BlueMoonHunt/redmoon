@@ -1,47 +1,10 @@
-# CMake build artifacts
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-CMakeUserPresets.json
-CMakePresets.json
-
-# Build directories
 /out/
-/build/
+/bin/
+/bin-int/
 
-# IDE specific files
+
 .vscode/
 .idea/
 
-# Executable output
-/bin/
 
-# Object files and libraries
-*.o
-*.obj
-*.exe
-*.dll
-*.lib
-*.so
-*.dylib
-*.pdb
-*.suo
-
-# Temporary files
-*~
-.#*
-
-# Documentation build artifacts (if applicable)
-/docs/html/
-
-# Package files (if applicable)
-*.deb
-*.rpm
+CMakePresets.json
