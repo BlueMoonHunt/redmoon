@@ -45,6 +45,7 @@ endif()
 add_subdirectory(vendor/SDL3_ttf)
 add_subdirectory(vendor/SDL3_image)
 add_subdirectory(vendor/SDL3_mixer)
+add_subdirectory(vendor/glm)
 
 # --- Linking Dependencies ---
 # Link against the imported targets provided by SDL3 and its extensions (modern CMake)
@@ -54,6 +55,7 @@ target_link_libraries(${PROJECT_NAME}
     SDL3_image::SDL3_image
     SDL3_ttf::SDL3_ttf
     SDL3_mixer::SDL3_mixer
+    glm::glm
 )
 
 # --- Include Directories ---
