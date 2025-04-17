@@ -16,7 +16,4 @@ namespace rm {
         }\
     }
 #endif // SDL_Validate
-
-    SDL_GPUShader* SDL_LoadShader(SDL_GPUDevice* device, const std::filesystem::path& shaderFilename, Uint32 samplerCount, Uint32 uniformBufferCount, Uint32 storageBufferCount, Uint32 storageTextureCount);
-
 } // namespace rm

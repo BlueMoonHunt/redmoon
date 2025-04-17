@@ -6,14 +6,16 @@ namespace rm {
     public:
         static void Init(SDL_Renderer* renderer);
         static void Shutdown();
-        static SDL_Renderer* getHandle();
+        static SDL_Renderer* GetHandle();
+        static SDL_GPUDevice* GetGPUDevice();
 
-        static void BeginFrame(const SDL_FColor& clearColor = { 0.9f,0.9f,0.95f,1.0f });
-        static void EndFrame();
+        static void Present(const SDL_FColor& clearColor = { 0.9f,0.9f,0.95f,1.0f });
     private:
-        static void createGPUDevice();
-        static void createShaders();
-        static void destroyShaders();
-        static void destroyGPUDevice();
+        static void CreateGPUDevice();
+        static void CreateShaders();
+        static void CreateGraphicsPipeline();
+        static void DestroyGraphicsPipeline();
+        static void DestroyShaders();
+        static void DestroyGPUDevice();
     };
 } // namespace rm
