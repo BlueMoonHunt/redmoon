@@ -11,13 +11,14 @@ namespace rm
         None = 0,
         Scene,
         Texture,
+        Shader
 
     };
 
-    struct Asset
+    class Asset
     {
-        AssetHandle handle = 0;
-
+        AssetHandle handle;
+        virtual AssetType getType() = 0;
     };
     
 } // namespace rm

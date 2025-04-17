@@ -31,8 +31,7 @@ namespace rm {
     }
 
     void Application::onUpdate() {
-        Renderer::BeginFrame();
-        Renderer::EndFrame();
+        Renderer::Present();
     }
 
     void Application::shutdown() {
