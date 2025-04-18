@@ -4,6 +4,7 @@
 #include <fstream>
 #include "utils/sdlUtils.h"
 #include <vector>
+#include "assetManager/assetManager.h"
 
 namespace rm {
     Shader::Shader(const std::filesystem::path& shaderFilename, uint32_t samplerCount, uint32_t uniformBufferCount, uint32_t storageBufferCount, uint32_t storageTextureCount) {
@@ -18,7 +19,7 @@ namespace rm {
             abort();
         }
 
-        const std::filesystem::path s_BasePath = SDL_GetBasePath();
+        const std::filesystem::path s_BasePath = AssetManager::GetBasePath();
         m_Path = s_BasePath / "res/Shaders/Compiled";
 
         SDL_GPUShaderFormat format = SDL_GPU_SHADERFORMAT_INVALID;

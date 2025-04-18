@@ -12,8 +12,9 @@ namespace rm {
             fprintf(stderr, "  Condition: %s\n", #condition); \
             fprintf(stderr, "  SDL Error: %s\n", SDL_GetError()); \
             fprintf(stderr, "  Location: %s:%d\n", __FILE__, __LINE__); \
-            abort(); /* Or throw an exception, etc. */ \
+            abort();\
         }\
     }
 #endif // SDL_Validate
+
 } // namespace rm
