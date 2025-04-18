@@ -10,6 +10,8 @@ namespace rm {
         void add(ref<Shader> shader);
         void add(ref<Shader> shader, const std::string& name);
         ref<Shader> loadShader(const std::string& name);
+        void erase(const std::string& name);
+        void clear();
     private:
         std::unordered_map<std::string,ref<Shader>> m_Library;
     };

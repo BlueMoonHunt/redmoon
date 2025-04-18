@@ -69,6 +69,9 @@ namespace rm {
         m_handle = SDL_CreateGPUShader(device, &shaderInfo);
         SDL_Validate(m_handle);
     }
+    Shader::~Shader() {
+        SDL_ReleaseGPUShader(Renderer::GetGPUDevice(), m_handle);
+    }
     SDL_GPUShader* Shader::getHandle() {
         return m_handle;
     }

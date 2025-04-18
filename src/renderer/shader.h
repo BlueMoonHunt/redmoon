@@ -9,7 +9,7 @@ namespace rm {
     class Shader : public Asset {
     public:
         Shader(const std::filesystem::path& shaderFilename, uint32_t samplerCount = 0, uint32_t uniformBufferCount = 0, uint32_t storageBufferCount = 0, uint32_t storageTextureCount = 0);
-        ~Shader() = default;
+        ~Shader();
 
         std::filesystem::path& getPath() { return m_Path; }
         SDL_GPUShader* getHandle();

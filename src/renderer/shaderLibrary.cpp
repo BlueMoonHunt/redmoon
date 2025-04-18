@@ -19,4 +19,12 @@ namespace rm {
         return m_Library[name];
     }
 
+    void ShaderLibrary::erase(const std::string& name) {
+        m_Library.erase(name);
+    }
+
+    void ShaderLibrary::clear() {
+        m_Library.clear();
+    }
+
 } // namespace rm

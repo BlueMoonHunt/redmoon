@@ -111,8 +111,7 @@ namespace rm {
     }
 
     void Renderer::DestroyShaders() {
-        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.shaders->loadShader("vertexShader")->getHandle());
-        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.shaders->loadShader("fragmentShader")->getHandle());
+        s_Data.shaders->clear();
     }
 
     void Renderer::DestroyGPUDevice() {
