@@ -15,9 +15,9 @@ namespace rm {
     struct RenderData {
         SDL_Renderer* handle = nullptr;
         SDL_GPUDevice* gpuDeviceHandle = nullptr;
-        SDL_GPUShader* vertexShader = nullptr;
-        SDL_GPUShader* fragmentShader = nullptr;
         SDL_GPUGraphicsPipeline* pipeline = nullptr;
+
+        ref<ShaderLibrary> shaders = nullptr;
 
         std::vector<DrawList> drawList;
     };
@@ -29,11 +29,6 @@ namespace rm {
         CreateGPUDevice();
         CreateShaders();
         CreateGraphicsPipeline();
-
-        ref<ShaderLibrary> shaders = createRef<ShaderLibrary>();
-        ref<Shader> shader = createRef<Shader>("RawTriangle.vert");
-        shaders->add(shader);
-
     }
 
     void Renderer::Shutdown() {
@@ -86,10 +81,9 @@ namespace rm {
     }
 
     void Renderer::CreateShaders() {
-        s_Data.vertexShader = SDL_LoadShader(s_Data.gpuDeviceHandle, "RawTriangle.vert", 0, 0, 0, 0);
-        SDL_Validate(s_Data.vertexShader);
-        s_Data.fragmentShader = SDL_LoadShader(s_Data.gpuDeviceHandle, "SolidColor.frag", 0, 0, 0, 0);
-        SDL_Validate(s_Data.fragmentShader);
+        s_Data.shaders = createRef<ShaderLibrary>();
+        s_Data.shaders->add(createRef<Shader>("RawTriangle.vert"), "vertexShader");
+        s_Data.shaders->add(createRef<Shader>("SolidColor.frag"), "fragmentShader");
     }
 
     void Renderer::CreateGraphicsPipeline() {
@@ -105,8 +99,8 @@ namespace rm {
         createInfo.target_info = targetInfo;
         createInfo.rasterizer_state.fill_mode = SDL_GPU_FILLMODE_FILL;
         createInfo.primitive_type = SDL_GPU_PRIMITIVETYPE_TRIANGLELIST;
-        createInfo.vertex_shader = s_Data.vertexShader;
-        createInfo.fragment_shader = s_Data.fragmentShader;
+        createInfo.vertex_shader = s_Data.shaders->loadShader("vertexShader")->getHandle();
+        createInfo.fragment_shader = s_Data.shaders->loadShader("fragmentShader")->getHandle();
 
         s_Data.pipeline = SDL_CreateGPUGraphicsPipeline(s_Data.gpuDeviceHandle, &createInfo);
         SDL_Validate(s_Data.pipeline);
@@ -117,8 +111,8 @@ namespace rm {
     }
 
     void Renderer::DestroyShaders() {
-        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.vertexShader);
-        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.fragmentShader);
+        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.shaders->loadShader("vertexShader")->getHandle());
+        SDL_ReleaseGPUShader(s_Data.gpuDeviceHandle, s_Data.shaders->loadShader("fragmentShader")->getHandle());
     }
 
     void Renderer::DestroyGPUDevice() {

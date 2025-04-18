@@ -8,7 +8,7 @@ namespace rm {
     class ShaderLibrary {
     public:
         void add(ref<Shader> shader);
-        void add(ref<Shader> shader, std::string name);
+        void add(ref<Shader> shader, const std::string& name);
         ref<Shader> loadShader(const std::string& name);
     private:
         std::unordered_map<std::string,ref<Shader>> m_Library;
