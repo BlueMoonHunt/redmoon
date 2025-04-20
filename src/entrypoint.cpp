@@ -16,7 +16,8 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[]) {
         .width = 900,
         .height = 700,
         .name = "Redmoon",
-        .flags = SDL_WINDOW_RESIZABLE
+        .resizable = true,
+        .createRMAssetFile = false
     };
     
     rm::Application* app = new rm::Application(specs);

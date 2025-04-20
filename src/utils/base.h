@@ -14,9 +14,9 @@ template<typename T, typename ... Args>
 constexpr scope<T> createScope(Args&& ... args) { return std::make_unique<T>(std::forward<Args>(args)...); }
 
 
-namespace rm
-{
-    #ifndef Validate
+namespace rm {
+
+#ifndef Validate
 #define Validate(condition, message) { \
         if (!condition) { \
             fprintf(stderr, "Validation Failed!\n"); \
@@ -27,4 +27,5 @@ namespace rm
         }\
     }
 #endif // Validate
+
 } // namespace rm

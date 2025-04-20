@@ -2,7 +2,6 @@
 #include "utils/base.h"
 #include "utils/sdlUtils.h"
 #include "renderer/renderer.h"
-#include "assetManager/assetManager.h"
 
 namespace rm {
     Application* Application::s_Instance = nullptr;
@@ -19,10 +18,11 @@ namespace rm {
 
     void Application::init() {
 
-        AssetManager::Init();
-        
         SDL_Renderer* renderer = nullptr;
-        SDL_Validate(SDL_CreateWindowAndRenderer(m_Specs.name, m_Specs.width, m_Specs.height, m_Specs.flags, &m_WindowHandle, &renderer));
+        SDL_WindowFlags flags;
+        if(m_Specs.resizable)
+            flags = SDL_WINDOW_RESIZABLE;
+        SDL_Validate(SDL_CreateWindowAndRenderer(m_Specs.name, m_Specs.width, m_Specs.height, flags, &m_WindowHandle, &renderer));
 
         SDL_HideWindow(m_WindowHandle);
 

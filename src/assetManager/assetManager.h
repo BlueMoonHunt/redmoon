@@ -1,15 +1,15 @@
 #pragma once
 #include "asset.h"
-#include <unordered_map>
-#include <filesystem>
+#include "core/application.h"
+
 namespace rm {
+
     class AssetManager {
     public:
-        static void Init();
-        static void Load();
-        static void LoadAsset();
-        static const std::filesystem::path& GetBasePath();
-        static void Reset();
-        static void Save();
+        template<typename T>
+        static ref<T> GetAsset(AssetHandle handle) {
+            ref<Asset> asset = Application::Get()->getAssetManager()->getAsset(handle);
+            return std::static_pointer_cast<T>(asset);
+        }
     };
 } // namespace rm
